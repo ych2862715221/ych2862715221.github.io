@@ -24,7 +24,7 @@
 
   
 
-  <title>first | Welcome to Chuanhua Yu&#39; blog</title>
+  <title>小白月赛82题解 | Welcome to Chuanhua Yu&#39; blog</title>
 
   
 
@@ -101,11 +101,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">first</h1>
+          <h1 class="title-wrap">小白月赛82题解</h1>
           <h2 class="title-sub-wrap">
             <strong>Chuanhua Yu</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-01-12T01:18:49.000Z" itemprop="datePublished">2024-01-12</time>
+            <time  class="article-date" datetime="2024-01-12T06:43:44.000Z" itemprop="datePublished">2024-01-12</time>
           </h2>
           
           
@@ -113,8 +113,6 @@
   
 </ul>
           <ul class="wrap-list dark">
-  
-    <li><a href="/tags/%E4%BB%8B%E7%BB%8D/">🏷️ 介绍</a></li>
   
 </ul>
         </div>
@@ -138,8 +136,34 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>This is start of my bloging</p>
-<p>大家可以通过标签查找我的博客内容</p>
+        <h2 id="A-谜题：质数-牛客小白月赛82-nowcoder-com"><a href="#A-谜题：质数-牛客小白月赛82-nowcoder-com" class="headerlink" title="A-谜题：质数_牛客小白月赛82 (nowcoder.com)"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/70845/A">A-谜题：质数_牛客小白月赛82 (nowcoder.com)</a></h2><p> 直接输出7或直接输出n都行</p>
+<h2 id="B-Kevin逛超市-2-简单版本-牛客小白月赛82-nowcoder-com"><a href="#B-Kevin逛超市-2-简单版本-牛客小白月赛82-nowcoder-com" class="headerlink" title="B-Kevin逛超市 2 (简单版本)_牛客小白月赛82 (nowcoder.com)"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/70845/B">B-Kevin逛超市 2 (简单版本)_牛客小白月赛82 (nowcoder.com)</a></h2><p>因为折扣卷和立减卷都只有一张，对价格最高的两个进行优惠卷讨论即可</p>
+<p>python code：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    n,x,y = <span class="built_in">map</span>(<span class="built_in">int</span>,sys.stdin.readline().split())</span><br><span class="line">    p = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split()))</span><br><span class="line"><span class="comment">#     x = (100-x)/100</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        ans = p[<span class="number">0</span>] - y <span class="keyword">if</span> p[<span class="number">0</span>] &gt; y <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">        ans = <span class="built_in">min</span>(ans, p[<span class="number">0</span>]*x/<span class="number">100</span>)</span><br><span class="line">        <span class="built_in">print</span>(ans)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    p.sort()</span><br><span class="line">    <span class="keyword">if</span> p[-<span class="number">2</span>] &gt;= y:</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            ans += p[i] <span class="keyword">if</span> i!=n-<span class="number">1</span> <span class="keyword">else</span> p[i]*x/<span class="number">100</span></span><br><span class="line">        <span class="built_in">print</span>(ans-y)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    x = (<span class="number">100</span>-x)/<span class="number">100</span></span><br><span class="line">    tmp = p[-<span class="number">1</span>]*x + p[-<span class="number">2</span>]</span><br><span class="line">    res = p[-<span class="number">2</span>]*x + (y <span class="keyword">if</span> p[-<span class="number">1</span>] &gt;= y <span class="keyword">else</span> p[-<span class="number">1</span>])</span><br><span class="line">    ans = <span class="built_in">sum</span>(p)</span><br><span class="line">    <span class="built_in">print</span>(ans-<span class="built_in">max</span>(tmp,res))</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(sys.stdin.readline())):</span><br><span class="line">    solve()</span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<h2 id="C-被遗忘的书籍-牛客小白月赛82-nowcoder-com"><a href="#C-被遗忘的书籍-牛客小白月赛82-nowcoder-com" class="headerlink" title="C-被遗忘的书籍_牛客小白月赛82 (nowcoder.com)"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/70845/C">C-被遗忘的书籍_牛客小白月赛82 (nowcoder.com)</a></h2><p>这题我一开始刚看完题闪过的想法是组合计数，后来想想有重复的情况而且不太规律应该纯计数不太行后来就往动态规划方面想了。</p>
+<h3 id="我们考虑动态规划："><a href="#我们考虑动态规划：" class="headerlink" title="我们考虑动态规划："></a>我们考虑动态规划：</h3><p>很显然，没有包含txt的限制条件下一共有<img src="https://latex.csdn.net/eq?26%5En" alt="26^n">种可能，那么我们只要考虑求出不包含txt的长为n的不同种的数量，再用<img src="https://latex.csdn.net/eq?26%5En" alt="26^n">减去就好。</p>
+<p>状态表示及转移方程</p>
+<p>我们考虑一个序列的结尾，不包含txt的序列结尾有3种情况：1、以 t 结尾 2、以tx结尾 3、以其他小写字母结尾，我们考虑从后面添加小写字母以增加长度，<strong>即以序列长度为阶段，长度和结尾的字母构成状态。</strong></p>
+<p><img src="https://latex.csdn.net/eq?f%5Bi%5D%5Bj%5D" alt="f[i][j]">表示长度为 <strong>i</strong> 的序列以 t 结尾<img src="https://latex.csdn.net/eq?(j=1)" alt="(j=1)">，以 tx 结尾<img src="https://latex.csdn.net/eq?(j=2)" alt="(j=2)">，其他情况<img src="https://latex.csdn.net/eq?(j=0)" alt="(j=0)">。</p>
+<p>状态转移：</p>
+<p>tx后面不可接t：<img src="https://latex.csdn.net/eq?f(i,1)=f(i-1,0)&plus;f(i-1,1)" alt="f(i,1)=f(i-1,0)+f(i-1,1)"></p>
+<p>tx只能由t接上x：<img src="https://latex.csdn.net/eq?f(i,2)%20=%20f(i-1,1)" alt="f(i,2) = f(i-1,1)"></p>
+<p>显然可得：<img src="https://latex.csdn.net/eq?f(i,0)=f(i-1,0)%5Ctimes%2025&plus;f(i-1,2)%5Ctimes25&plus;f(i-1,1)%5Ctimes24" alt="f(i,0)=f(i-1,0)\times 25+f(i-1,2)\times25+f(i-1,1)\times24"></p>
+<p>python code：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">mod = <span class="number">998244353</span></span><br><span class="line">N = <span class="number">2</span>*<span class="number">10</span>**<span class="number">5</span>+<span class="number">1</span></span><br><span class="line">f = [[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line">f[<span class="number">1</span>] = [<span class="number">25</span>,<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,N):</span><br><span class="line">    f[i][<span class="number">1</span>] = (f[i-<span class="number">1</span>][<span class="number">0</span>] + f[i-<span class="number">1</span>][<span class="number">1</span>]) % mod</span><br><span class="line">    f[i][<span class="number">2</span>] = f[i-<span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line">    f[i][<span class="number">0</span>] = (f[i-<span class="number">1</span>][<span class="number">0</span>]*<span class="number">25</span> + f[i-<span class="number">1</span>][<span class="number">2</span>]*<span class="number">25</span> + f[i-<span class="number">1</span>][<span class="number">1</span>]*<span class="number">24</span>) % mod</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(sys.stdin.readline())):</span><br><span class="line">    n = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">    ans = <span class="built_in">pow</span>(<span class="number">26</span>,n,mod) - <span class="built_in">sum</span>(f[n])</span><br><span class="line">    <span class="built_in">print</span>((ans+mod)%mod)</span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<h2 id="D-Kevin逛超市-2-困难版本-牛客小白月赛82-nowcoder-com"><a href="#D-Kevin逛超市-2-困难版本-牛客小白月赛82-nowcoder-com" class="headerlink" title="D-Kevin逛超市 2 (困难版本)_牛客小白月赛82 (nowcoder.com)"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/70845/D">D-Kevin逛超市 2 (困难版本)_牛客小白月赛82 (nowcoder.com)</a></h2><h3 id="问题推理及证明："><a href="#问题推理及证明：" class="headerlink" title="问题推理及证明："></a>问题推理及证明：</h3><p>我们先<strong>对P进行降序排序</strong>，之后对于每一件商品，无非两种情况：</p>
+<p>一、当<img src="https://latex.csdn.net/eq?P_%7Bi%7D%20%3C=%20y" alt="P_{i} &lt;= y">时：y相当于 x &#x3D; 0 的折扣卷</p>
+<p>二、当<img src="https://latex.csdn.net/eq?P_%7Bi%7D%20%3E%20y" alt="P_{i} &gt; y">时：</p>
+<p><img src="https://img-blog.csdnimg.cn/direct/e808cbffaecd4adc9b22deee50cada41.jpeg" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>综上所述：在价格降序排序后先折扣再立减卷再折扣卷，<strong>即立减卷在一段连续的区间使用</strong>，这样我们就不难想到下面这样的解法，详细见代码注释。</p>
+<p>python code：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    n,a,b,x,y = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    price = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    price.sort(reverse=<span class="literal">True</span>)</span><br><span class="line">    le = <span class="built_in">min</span>(n, a+b)</span><br><span class="line">    delta = [(price[i]*x/<span class="number">100</span> - <span class="built_in">max</span>(price[i]-y, <span class="number">0</span>), i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(le)]</span><br><span class="line">    delta.sort(reverse = <span class="literal">True</span>)  <span class="comment">#折扣后的价钱比立减后的价钱贵多少，越大越靠前</span></span><br><span class="line">    idx = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> idx &lt; le <span class="keyword">and</span> idx &lt; b <span class="keyword">and</span> ((le - idx) &gt; a <span class="keyword">or</span> delta[idx][<span class="number">0</span>] &gt; <span class="number">0</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        idx &lt; b：还有立减卷可以用</span></span><br><span class="line"><span class="string">        并且</span></span><br><span class="line"><span class="string">        (le - idx) &gt; a：</span></span><br><span class="line"><span class="string">            剩下的数量大于折扣卷的数量，因为那我们卷用的越多越好，</span></span><br><span class="line"><span class="string">            我们直接贪心的选立减卷delta最大的，此时是倒序枚举，满足。</span></span><br><span class="line"><span class="string">        delta[idx][0] &gt; 0: </span></span><br><span class="line"><span class="string">            立减卷比折扣卷优惠更多，此时折扣卷用不完，意味着卷的数量大于n，</span></span><br><span class="line"><span class="string">            此时立减卷优惠大我们用立减卷</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        _, i = delta[idx]</span><br><span class="line">        price[i] = <span class="built_in">max</span>(price[i] - y, <span class="number">0</span>)</span><br><span class="line">        idx += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> idx &lt; le:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        剩下的卷优惠大的是折扣卷，必定在中间一段</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        _, i = delta[idx]</span><br><span class="line">        price[i] *= x / <span class="number">100</span></span><br><span class="line">        idx += <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">sum</span>(price))</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(sys.stdin.readline())):</span><br><span class="line">    solve()</span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
 
       </section>
 
@@ -147,20 +171,20 @@
       
         <nav class="article-nav">
           
+          
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2024/01/12/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">二分图匹配</h2>
+        <a href="/2024/01/12/%E9%87%8D%E6%B8%A9%E7%BB%8F%E5%85%B82020ICPC%E4%B8%8A%E6%B5%B7%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">重温经典2020ICPC上海补题记录</h2>
         </a>
       
-      <div class="card-text--row">Newer</div>
+      <div class="card-text--row">Older</div>
     </div>
   </article>
 </div>
-          
           
         </nav>
       
