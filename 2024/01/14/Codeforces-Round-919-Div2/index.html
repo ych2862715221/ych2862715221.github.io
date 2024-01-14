@@ -159,6 +159,17 @@
 <p><strong>方法 2</strong><br>$$<br>观察 k:&#x3D;k \bmod dp_{i-1}可以将 k 减少至少一半。<br>$$</p>
 <p>$$<br>如果我们重复二进制搜索第一个 i ，即 dp_i \geq k，然后执行 k:&#x3D;k \bmod dp_{i-1} 否则停止<br>$$</p>
 <p>$$<br>那么每次查询将耗时 O(\log n\log k) ，因此总时间复杂度为 O(n+q\log n\log {(\max{k})}) 。<br>$$</p>
+<p>首先，让我们预先计算一些事情：</p>
+<p>$lst_i&#x3D;\text{last element after performing the first $ $$i$$ $ operations}$ $dp_i&#x3D;\text{number of elements after the first i operations}$</p>
+<p>现在，让我们试着回答某个查询 $k$ 。如果有 $dp_i&#x3D;k$ ，那么答案就是 $lst_i$ 。</p>
+<p>否则，让我们找出 $dp_i &gt; k$ 的第一个 $i$ 。这个 $i$ 将是一个重复操作，我们的答案将位于其中一个重复操作中。此时我们的列表如下</p>
+<p>$ \underbrace{[l_1, l_2,…l_{dp_{i-1}}]}<em>{\text{length } dp</em>{i-1}} \underbrace{[l_1, l_2,…l_{dp_{i-1}}]}<em>{\text{length } dp</em>{i-1}} \underbrace{[l_1, l_2,…l_{dp_{i-1}}]}<em>{\text{length } dp</em>{i-1}} … \underbrace{[l_1, \textbf{l_2},…l_{dp_{i-1}}]}<em>{\text{length } dp</em>{i-1}}$</p>
+<p>让 $k$ -th元素成为最后一次重复中加粗的 $l_2$ 。正如你所看到的，找到 $k$ -元素等同于找到 $(k \bmod dp_{i-1})$ -th元素。因此，我们应该做 $k:&#x3D;k \bmod dp_{i-1}$ ，然后重复！但还有一种情况！如果是 $k \equiv 0 \pmod {dp_{i-1}}$ ，那么答案就是 $lst_{i-1}$ 。</p>
+<p>此时我们有两种方法来解决这个问题：</p>
+<p><strong>方法 1</strong></p>
+<p>注意，在对第二种类型进行 $\log{(\max{k})}$ 次操作后，元素数将超过 $\max{k}$ 。因此，我们只需关注第二种类型的前 $\log{(\max{k})}$ 次操作。因此，反向遍历第二种类型的 $\log{(\max{k})}$ 次操作，并执行上述案例。这将导致 $O(n+q\log{(\max{k})})$ 解或 $O(n+q(\log{(\max{k})}+\log n))$ 解，具体取决于实现细节。</p>
+<p><strong>方法 2</strong></p>
+<p>观察 $k:&#x3D;k \bmod dp_{i-1}$ 可以将 $k$ 减少至少一半。如果我们重复二进制搜索第一个 $i$ ，即 $dp_i \geq k$ ，然后执行 $k:&#x3D;k \bmod dp_{i-1}$ （如果是其他情况之一，则停止），那么每次查询将耗时 $O(\log n\log k)$ ，因此总时间复杂度为 $O(n+q\log n\log {(\max{k})})$ 。</p>
 
       </section>
 
