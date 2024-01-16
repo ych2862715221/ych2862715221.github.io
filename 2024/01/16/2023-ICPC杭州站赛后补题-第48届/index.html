@@ -24,7 +24,7 @@
 
   
 
-  <title>going-home(二分图带权匹配) | Welcome to Chuanhua Yu&#39; blog</title>
+  <title>2023-ICPC杭州站赛后补题(第48届) | Welcome to Chuanhua Yu&#39; blog</title>
 
   
 
@@ -101,17 +101,12 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">going-home(二分图带权匹配)</h1>
+          <h1 class="title-wrap">2023-ICPC杭州站赛后补题(第48届)</h1>
           <h2 class="title-sub-wrap">
             <strong>Chuanhua Yu</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-01-12T06:20:06.000Z" itemprop="datePublished">2024-01-12</time>
+            <time  class="article-date" datetime="2024-01-16T07:12:25.000Z" itemprop="datePublished">2024-01-16</time>
           </h2>
-          
-            <h2 class="last-time">
-              <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-01-15T13:11:01.140Z" itemprop="dateUpdated">2024-01-15</time>
-            </h2>
           
           
           <ul class="wrap-list dark">
@@ -121,9 +116,7 @@
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%B8%A6%E6%9D%83%E5%8C%B9%E9%85%8D/">🏷️ 二分图带权匹配</a></li>
-  
-    <li><a href="/tags/%E5%9B%BE%E8%AE%BA/">🏷️ 图论</a></li>
+    <li><a href="/tags/XCPC/">🏷️ XCPC</a></li>
   
 </ul>
         </div>
@@ -147,19 +140,7 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>注：题目可在牛客竞赛OJ找到并提交</p>
-<p>On a grid map there are n little men and n houses. In each unit time, every little man can move one unit step, either horizontally, or vertically, to an adjacent point. For each little man, you need to pay a $1 travel fee for every step he moves, until he enters a house. The task is complicated with the restriction that each house can accommodate only one little man.<br> Your task is to compute the minimum amount of money you need to pay in order to send these n little men into those n different houses. The input is a map of the scenario, a ‘.’ means an empty space, an ‘H’ represents a house on that point, and am ‘m’ indicates there is a little man on that point.<br> <img src="https://uploadfiles.nowcoder.com/files/20190715/314053_1563177863609_2195_1.jpg" alt="img"><br> You can think of each point on the grid map as a quite large square, so it can hold n little men at the same time; also, it is okay if a little man steps on a grid with a house without entering that house.</p>
-<h2 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">There are one or more test cases in the input. Each case starts with a line giving two integers N and M, where N is the number of rows of the map, and M is the number of columns. The rest of the input will be N lines describing the map. You may assume both N and M are between 2 and 100, inclusive. There will be the same number of &#x27;H&#x27;s and &#x27;m&#x27;s on the map; and there will be at most 100 houses. Input will terminate with 0 0 for N and M.</span><br></pre></td></tr></table></figure>
-<h2 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a>输出描述:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">For each test case, output one line with the single integer, which is the minimum amount, in dollars, you need to pay.</span><br></pre></td></tr></table></figure>
-<p>​                            示例1                        </p>
-<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p><a href="javascript:void(0">复制</a>;)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">2 2</span><br><span class="line">.m</span><br><span class="line">H.</span><br><span class="line">5 5</span><br><span class="line">HH..m</span><br><span class="line">.....</span><br><span class="line">.....</span><br><span class="line">.....</span><br><span class="line">mm..H</span><br><span class="line">7 8</span><br><span class="line">...H....</span><br><span class="line">...H....</span><br><span class="line">...H....</span><br><span class="line">mmmHmmmm</span><br><span class="line">...H....</span><br><span class="line">...H....</span><br><span class="line">...H....</span><br><span class="line">0 0</span><br></pre></td></tr></table></figure>
-<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p><a href="javascript:void(0">复制</a>;)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">10</span><br><span class="line">28</span><br></pre></td></tr></table></figure>
-<h2 id="题目分析："><a href="#题目分析：" class="headerlink" title="题目分析："></a>题目分析：</h2><p>题目大意是给你一个二维网格，里面标出了人和房子的位置，问我们人都走到一个房子里面，最少需要走多少。其实就是很直接的告诉你，让你求一个人和房子的最小匹配。</p>
-<p>那我们直接建图的时候对边权取反求最大匹配，最后的 ans 取反就是最小的匹配，是一道二分图带权匹配的模板题。</p>
-<p>python code：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">inf, _inf = <span class="built_in">float</span>(<span class="string">&quot;inf&quot;</span>), <span class="built_in">float</span>(<span class="string">&#x27;-inf&#x27;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">km</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">x</span>):</span><br><span class="line">        visx[x] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,H+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> visy[i] <span class="keyword">and</span> lx[x] + ly[i] == g[x][i]:</span><br><span class="line">                visy[i] = <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> link[i] == <span class="number">0</span> <span class="keyword">or</span> dfs(link[i]):</span><br><span class="line">                    link[i] = x</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,P+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            visx,visy = [<span class="number">0</span>]*(P+<span class="number">1</span>), [<span class="number">0</span>]*(H+<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> dfs(i): <span class="keyword">break</span></span><br><span class="line">            d = inf</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,P+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> visx[j]:</span><br><span class="line">                    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,H+<span class="number">1</span>):</span><br><span class="line">                        <span class="keyword">if</span> <span class="keyword">not</span> visy[k]: d = <span class="built_in">min</span>(d, lx[j] + ly[k] - g[j][k])</span><br><span class="line">            <span class="keyword">if</span> d == inf: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,P+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> visx[j]: lx[j] -= d</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,H+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> visy[j]: ly[j] += d</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    n,m = <span class="built_in">map</span>(<span class="built_in">int</span>, sys.stdin.readline().split())</span><br><span class="line">    P,H = <span class="number">0</span>,<span class="number">0</span>  <span class="comment">#人，房子的数量</span></span><br><span class="line">    <span class="keyword">if</span> n == m <span class="keyword">and</span> n == <span class="number">0</span>: <span class="keyword">break</span></span><br><span class="line">    p,h = [(<span class="number">0</span>,<span class="number">0</span>)],[(<span class="number">0</span>,<span class="number">0</span>)]  <span class="comment">#人和房子的位置</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">        s = <span class="string">&#x27;.&#x27;</span>+sys.stdin.readline()</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,m+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> s[j] == <span class="string">&#x27;H&#x27;</span>:</span><br><span class="line">                H += <span class="number">1</span></span><br><span class="line">                h.append((i,j))</span><br><span class="line">            <span class="keyword">if</span> s[j] == <span class="string">&#x27;m&#x27;</span>:</span><br><span class="line">                P += <span class="number">1</span></span><br><span class="line">                p.append((i,j))</span><br><span class="line">    g = [[<span class="number">0</span>]*(H+<span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(H+<span class="number">1</span>)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, P+<span class="number">1</span>):    <span class="comment">#对每一个人和房子建图连边</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, H+<span class="number">1</span>):</span><br><span class="line">            g[i][j] = -(<span class="built_in">abs</span>(p[i][<span class="number">0</span>]-h[j][<span class="number">0</span>]) + <span class="built_in">abs</span>(p[i][<span class="number">1</span>] - h[j][<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">    lx,ly,link = [_inf]*(P+<span class="number">1</span>),[<span class="number">0</span>]*(H+<span class="number">1</span>),[<span class="number">0</span>]*(P+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,P+<span class="number">1</span>):   <span class="comment">#对x集合的顶标进行预处理</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,H+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> g[i][j] != <span class="number">0</span>:</span><br><span class="line">                lx[i] = <span class="built_in">max</span>(lx[i], g[i][j])</span><br><span class="line">    <span class="keyword">if</span> km() == <span class="number">1</span>:</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,H+<span class="number">1</span>):</span><br><span class="line">            ans += g[link[i]][i]</span><br><span class="line">        <span class="built_in">print</span>(-ans)</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+        <p>由于2023ICPC杭州站题目会作为Ucup上的一场比赛，所以这份补题将在Ucup 2月10号比完赛后更新</p>
 
       </section>
 
@@ -167,28 +148,14 @@
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2024/01/12/%E9%87%8D%E6%B8%A9%E7%BB%8F%E5%85%B82020ICPC%E4%B8%8A%E6%B5%B7%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">重温经典2020ICPC上海补题记录</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2024/01/12/ZJOI2009-%E5%81%87%E6%9C%9F%E7%9A%84%E5%AE%BF%E8%88%8D/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">[ZJOI2009]假期的宿舍</h2>
+        <a href="/2024/01/15/%E5%8D%A0%E9%A2%86%E5%9F%8E%E5%B8%82-%E6%9C%80%E5%B0%8F%E4%B8%8D%E7%9B%B8%E4%BA%A4%E8%B7%AF%E5%BE%84%E8%A6%86%E7%9B%96/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">占领城市(最小不相交路径覆盖和最小相交路径覆盖)</h2>
         </a>
       
       <div class="card-text--row">Older</div>
