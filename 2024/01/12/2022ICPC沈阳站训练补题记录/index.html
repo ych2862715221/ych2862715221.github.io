@@ -110,7 +110,7 @@
           
             <h2 class="last-time">
               <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-01-15T07:58:45.479Z" itemprop="dateUpdated">2024-01-15</time>
+              <time  class="article-updated" datetime="2024-01-18T05:22:25.361Z" itemprop="dateUpdated">2024-01-18</time>
             </h2>
           
           
@@ -145,7 +145,8 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p> 这里给出部分题解(个人结题记录，可能还有很多地方可以优化)，持续更新中，按对我个人的难度排序</p>
+        <p>[TOC]</p>
+<p> 这里给出部分题解(个人结题记录，可能还有很多地方可以优化)，持续更新中，按对我个人的难度排序</p>
 <p>记得用PyPy3.x交,比python3.x系列会快几倍</p>
 <h2 id="D、DRX-vs-T1"><a href="#D、DRX-vs-T1" class="headerlink" title="D、DRX vs. T1"></a>D、<a target="_blank" rel="noopener" href="https://codeforces.com/gym/104160/problem/D">DRX vs. T1</a></h2><p>签到题，按题意模拟即可</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">s = <span class="built_in">list</span>(sys.stdin.readline().strip())</span><br><span class="line">d, t = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">    <span class="keyword">if</span> s[i] == <span class="string">&#x27;T&#x27;</span>: t += <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> s[i] == <span class="string">&#x27;D&#x27;</span>: d += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> d ==<span class="number">3</span> <span class="keyword">or</span> t == <span class="number">3</span>: <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;T1&quot;</span> <span class="keyword">if</span> t == <span class="number">3</span> <span class="keyword">else</span> <span class="string">&quot;DRX&quot;</span>)</span><br></pre></td></tr></table></figure>
