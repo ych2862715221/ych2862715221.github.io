@@ -24,7 +24,7 @@
 
   
 
-  <title>2023ICPC杭州站赛后补题(第48届) | Welcome to Chuanhua Yu&#39; blog</title>
+  <title>数据结构进阶python模板 | Welcome to Chuanhua Yu&#39; blog</title>
 
   
 
@@ -34,6 +34,8 @@
 
   <!--mathjax latex数学公式显示支持-->
   
+   
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
 
   
@@ -43,7 +45,119 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-</head>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 <body>
   <div class="root-container">
     
@@ -101,12 +215,17 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">2023ICPC杭州站赛后补题(第48届)</h1>
+          <h1 class="title-wrap">数据结构进阶python模板</h1>
           <h2 class="title-sub-wrap">
             <strong>Chuanhua Yu</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-01-16T07:12:25.000Z" itemprop="datePublished">2024-01-16</time>
+            <time  class="article-date" datetime="2024-02-06T04:16:13.000Z" itemprop="datePublished">2024-02-06</time>
           </h2>
+          
+            <h2 class="last-time">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2024-02-07T10:39:56.920Z" itemprop="dateUpdated">2024-02-07</time>
+            </h2>
           
           
           <ul class="wrap-list dark">
@@ -117,6 +236,8 @@
           <ul class="wrap-list dark">
   
     <li><a href="/tags/XCPC/">🏷️ XCPC</a></li>
+  
+    <li><a href="/tags/python%E6%A8%A1%E6%9D%BF/">🏷️ python模板</a></li>
   
 </ul>
         </div>
@@ -140,7 +261,16 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>注：由于2023ICPC杭州站题目会作为Ucup上的一场比赛，所以这份补题将在Ucup 2月10号比完赛后更新（预计补题 M J D G H 五题）</p>
+        <p>s</p>
+<h1 id="数据结构模板"><a href="#数据结构模板" class="headerlink" title="数据结构模板"></a>数据结构模板</h1><h2 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h2><h3 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h3><p>树状数组被理解成是“可以修改”的前缀和。使用时的局限性：</p>
+<ol>
+<li>因为树状数组的本质是前缀和，所以依赖“前缀可减性”</li>
+<li>树状数组的单点修改具有局限性，例如“带修改的前缀max,min”问题中，修改必须具有单调性。</li>
+</ol>
+<h3 id="1-lowbit"><a href="#1-lowbit" class="headerlink" title="1.lowbit"></a>1.lowbit</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">lowbit</span>(<span class="params">x</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> x&amp;-x</span><br></pre></td></tr></table></figure>
+<h3 id="2-查询"><a href="#2-查询" class="headerlink" title="2.查询"></a>2.查询</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">su = [<span class="number">0</span>] * <span class="number">100005</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">query</span>(<span class="params">pos</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> pos:</span><br><span class="line">        res += su[pos]</span><br><span class="line">        pos -= lowbit(pos)</span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<h3 id="3-修改"><a href="#3-修改" class="headerlink" title="3.修改"></a>3.修改</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">su = [<span class="number">0</span>] * <span class="number">100005</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">change</span>(<span class="params">pos, x</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">while</span> pos &lt;= n:</span><br><span class="line">        su[pos] += x</span><br><span class="line">        pos += lowbit(pos)</span><br></pre></td></tr></table></figure>
+<h2 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
       </section>
 
@@ -153,8 +283,8 @@
     
     <div class="card-text">
       
-        <a href="/2024/01/18/2023ICPC%E6%B5%8E%E5%8D%97%E7%AB%99VP%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95-%E7%AC%AC48%E5%B1%8A/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">2023ICPC济南站VP补题记录(第48届)</h2>
+        <a href="/2024/02/06/2024%E7%89%9B%E5%AE%A2%E5%AF%92%E5%81%87%E8%AE%AD%E7%BB%83%E8%90%A5-py-10-13/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">2024牛客寒假训练营(py-DC2题)</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -168,8 +298,8 @@
     
     <div class="card-text">
       
-        <a href="/2024/01/15/%E5%8D%A0%E9%A2%86%E5%9F%8E%E5%B8%82-%E6%9C%80%E5%B0%8F%E4%B8%8D%E7%9B%B8%E4%BA%A4%E8%B7%AF%E5%BE%84%E8%A6%86%E7%9B%96/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">占领城市(最小不相交路径覆盖和最小相交路径覆盖)</h2>
+        <a href="/2024/02/06/%E5%9B%BE%E8%AE%BA%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95python%E6%A8%A1%E6%9D%BF/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">图论基础算法python模板</h2>
         </a>
       
       <div class="card-text--row">Older</div>
